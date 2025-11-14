@@ -1,13 +1,189 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+/* Set Inter as the body font */
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0px;
+  line-height: 130%;
+  font-style: normal;
+  vertical-align: middle;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* --- Component Styles --- */
+
+/* 1. Main Wrapper/Centering */
+.page-selector-wrapper {
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  display: flex;
+}
+
+/* 2. Main Card Container (Width, Borders, Shadow) */
+.page-selector-card {
+  column-width: 370px;
+  width: 370;
+  height: 326;
+  top: 85px;
+  left: 104px;
+  background-color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-color: rgba(238, 238, 238, 1);
+  border-width: 1px;
+  border-radius: 6px;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
+  box-shadow: 0px 8px 15px 0px rgba(0, 0, 0, 0.12);
+}
+
+.card-divider-wrapper {
+  width: 370px;
+  height: 20px;
+  padding-top: 10px;
+  padding-right: 15px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+}
+
+.card-divider {
+  width: 340px;
+  height: 1px;
+  stroke: rgba(205, 205, 205, 1);
+}
+
+/* 3. Base List Row Styling (Static Spacing and Hover) */
+.page-selector-row {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  cursor: pointer;
+  width: 370px;
+  height: 42px;
+  top: 83px;
+  left: -1px;
+  padding-top: 8px;
+  padding-right: 15px;
+  padding-bottom: 8px;
+  padding-left: 22px;
+}
+
+/* 4. Scrollable Detail Container */
+.page-selector-scroll-container {
+  width: 370px;
+  height: 164px;
+  background-color: white;
+  overflow: scroll;
+  scrollbar-width: none;
+}
+
+/* 5. Checkbox Base Indicator Styling (Static size and shape) */
+
+.checkbox-wrapper {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* HIDE THE REAL CHECKBOX */
+.hidden-checkbox {
+  display: none;
+}
+
+/*Unselected Custom box */
+.custom-checkbox {
+  width: 23px;
+  height: 23px;
+  border: 1px solid rgba(227, 227, 227, 1);
+  border-radius: 6px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*Unselected Checkmark SVG */
+.check-icon {
+  width: 25px;
+  height: 25px;
+  stroke: white;
+  stroke-width: 1px;
+  opacity: 0;
+}
+
+/* Unselected + hover*/
+.checkbox-wrapper:hover .hidden-checkbox:not(:checked)+.custom-checkbox {
+  border: 1px solid rgba(189, 189, 189, 1);
+}
+
+.checkbox-wrapper:hover .hidden-checkbox:not(:checked)+.custom-checkbox .check-icon {
+  opacity: 1;
+  stroke: rgba(227, 227, 227, 1);
+}
+
+/*Selected*/
+.hidden-checkbox:checked+.custom-checkbox {
+  border-color: rgba(36, 105, 246, 1);
+  background: rgba(36, 105, 246, 1);
+}
+
+.hidden-checkbox:checked+.custom-checkbox .check-icon {
+  opacity: 1;
+  stroke: white;
+}
+
+/*Selected + hover */
+.checkbox-wrapper:hover .hidden-checkbox:checked+.custom-checkbox {
+  background: rgba(80, 135, 248, 1);
+  border-color: rgba(80, 135, 248, 1);
+}
+
+/*Unselected Active (clicking) */
+.checkbox-wrapper:active .hidden-checkbox:not(:checked)+.custom-checkbox .check-icon {
+  opacity: 1;
+  stroke: rgba(135, 135, 135, 1);
+}
+
+/*Selected Active (clicking) */
+.checkbox-wrapper:active .hidden-checkbox:checked+.custom-checkbox {
+  background: rgba(36, 105, 246, 1);
+  border: 4px rgba(36, 105, 246, 1);
+}
+
+/* 6. Done Button */
+.page-selector-button {
+  width: 340px;
+  height: 40px;
+  border-radius: 4px;
+  padding-top: 10px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  background-color: rgba(255, 206, 34, 1);
+}
+
+.page-selector-button:hover {
+  width: 340px;
+  height: 40px;
+  border-radius: 4px;
+  padding-top: 10px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  background-color: rgba(255, 216, 77, 1);
+}
+
+/* 7. Done Button Wrapper */
+.page-selector-button-wrapper {
+  width: 370px;
+  height: 60px;
+  padding-top: 10px;
+  padding-right: 15px;
+  padding-bottom: 10px;
+  padding-left: 15px;
 }

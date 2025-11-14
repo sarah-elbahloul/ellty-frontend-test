@@ -4,6 +4,7 @@ This repository contains my implementation of the component provided in the Ellt
 The goal was to recreate the design as pixel-perfect as possible based on the Figma reference, using HTML, CSS, and JavaScript.
 
 ## 🔗 Live Demo
+https://ellty-frontend-test1.vercel.app/
 
 ## 🎨 Technologies Used
 - HTML
